@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+<h:head>
+	<title>Validador Web</title>
+	
+	<link href="#{facesContext.externalContext.request.contextPath}/css/template.css" rel="stylesheet" type="text/css" />
+</h:head> 
+<body> 
+<div id="tudo">
+ <div id="topo">
+  <ui:insert name="topo">
+   <ui:include src="topo.xhtml" /> 
+  </ui:insert>  
+ </div>
+ <div id="centro">
+  <div id="menu">
+   <ui:insert name="menu">   
+    <ui:include src="menu.xhtml" />
+   </ui:insert>
+  </div>
+  <div id="principal">
+   <ui:insert name="principal">   
+   </ui:insert>
+  </div>   
+ </div>
+ <div id="rodape">
+  <ui:insert name="rodape">
+   <ui:include src="rodape.xhtml" /> 
+  </ui:insert>  
+ </div>
+</div>
+</body> 
+</html>
