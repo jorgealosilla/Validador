@@ -11,8 +11,18 @@
 		<h:messages />
 		<h:form id="formIndex">
 			Cadastro de Campo
+			<h:outputLabel value="Código Campo :" styleClass=""/>
+			<h:inputText value="#{campoMB.campoSelecionado.idCampo}" />
+			
 			<h:outputLabel value="Nome :" />
 			<h:inputText value="#{campoMB.campoSelecionado.nome}" />
+			
+			<h:outputLabel value="Tamanho :" />
+			<h:inputText value="#{campoMB.campoSelecionado.tamanho}" />
+			
+			<h:outputLabel value="Sequencia :" />
+			<h:inputText value="#{campoMB.campoSelecionado.sequencia}" />
+			
 			<h:commandButton action="#{campoMB.salvar}" value=" Salvar " />
 		</h:form>
 	</ui:define>
