@@ -16,12 +16,32 @@
 			
 			<h:outputLabel value="Nome :" />
 			<h:inputText value="#{campoMB.campoSelecionado.nome}" />
+
+			<h:outputLabel value="Descrição :" />
+			<h:inputText value="#{campoMB.campoSelecionado.descricao}" />
 			
-			<h:outputLabel value="Tamanho :" />
-			<h:inputText value="#{campoMB.campoSelecionado.tamanho}" />
+			<h:outputLabel for="cbbTipoCampo" value="Tipo: "/>
+			<h:selectOneListbox value="#{campoMB.campoSelecionado.tipoCampo}" id="cbbTipoCampo" size="1" >
+				<f:selectItems value="#{campoMB.tiposCampo}" var="tipo" itemValue="#{tipo}" itemLabel="#{tipo.value}"/>
+			</h:selectOneListbox>
 			
-			<h:outputLabel value="Sequencia :" />
-			<h:inputText value="#{campoMB.campoSelecionado.sequencia}" />
+			<h:outputLabel value="Máscara :" />
+			<h:inputText value="#{campoMB.campoSelecionado.mascara}" />
+			
+			<h:outputLabel value="Valor :" />
+			<h:inputText value="#{campoMB.campoSelecionado.valor}" />			
+
+			<h:outputLabel value="Valor Mínimo :" />
+			<h:inputText value="#{campoMB.campoSelecionado.valorMinimo}" />
+
+			<h:outputLabel value="Valor Máximo :" />
+			<h:inputText value="#{campoMB.campoSelecionado.valorMaximo}" />
+									
+			<h:outputLabel value="Tamanho Mínimo :" />
+			<h:inputText value="#{campoMB.campoSelecionado.tamanhoMinimo}" />
+			
+			<h:outputLabel value="Tamanho Máximo :" />
+			<h:inputText value="#{campoMB.campoSelecionado.tamanhoMaximo}" />
 			
 			<h:commandButton action="#{campoMB.salvar}" value=" Salvar " />
 		</h:form>

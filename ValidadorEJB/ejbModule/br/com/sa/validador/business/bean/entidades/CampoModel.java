@@ -10,6 +10,8 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Transient;
 
+import br.com.sa.validador.business.enuns.TipoCampo;
+
 /**
  * @author jorge.alosilla
  * @version 1.0
@@ -17,7 +19,7 @@ import javax.persistence.Transient;
  */
 @Entity(name="campo")
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-public abstract class CampoModel implements Serializable{
+public class CampoModel implements Serializable{
 	/**
 	 * 
 	 */
@@ -27,16 +29,25 @@ public abstract class CampoModel implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long idCampo;
 	private String nome;
-	private int sequencia;
-	private int tamanho;
+	private String descricao;
+	private String mascara;
+	private String valor;// p/ campo de tipoRegistro
+	private char caracterPreenchimento;
+	private int ladoPreenchimento; // esquerdo direito
+	private int tamanhoMaximo;
+	private int tamanhoMinimo;
+	private int valorMaximo;
+	private int valorMinimo;
 	/**
 	 * 1 - Inteiro;
 	 * 2 - Decimal;
 	 * 3 - Texto;
 	 * 4 - Data
+	 * 5 - Tabela Interna
+	 * 6 - Agrupador
+	 * 
 	 */
-	//private Enum tipo;
-	//private Enum obrigatoriedade;
+	private TipoCampo tipoCampo;
 	
 	public CampoModel(){
 
@@ -71,59 +82,142 @@ public abstract class CampoModel implements Serializable{
 	}
 
 	/**
-	 * @return the sequencia
+	 * @return the descricao
 	 */
-	public int getSequencia() {
-		return sequencia;
+	public String getDescricao() {
+		return descricao;
 	}
 
 	/**
-	 * @param sequencia the sequencia to set
+	 * @param descricao the descricao to set
 	 */
-	public void setSequencia(int sequencia) {
-		this.sequencia = sequencia;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 
 	/**
-	 * @return the tamanho
+	 * @return the mascara
 	 */
-	public int getTamanho() {
-		return tamanho;
+	public String getMascara() {
+		return mascara;
 	}
 
 	/**
-	 * @param tamanho the tamanho to set
+	 * @param mascara the mascara to set
 	 */
-	public void setTamanho(int tamanho) {
-		this.tamanho = tamanho;
+	public void setMascara(String mascara) {
+		this.mascara = mascara;
 	}
 
-	
 	/**
-	 * @return the obrigatoriedade
+	 * @return the valor
 	 */
-//	public Enum getObrigatoriedade() {
-//		return obrigatoriedade;
-//	}
+	public String getValor() {
+		return valor;
+	}
 
 	/**
-	 * @param obrigatoriedade the obrigatoriedade to set
+	 * @param valor the valor to set
 	 */
-//	public void setObrigatoriedade(Enum obrigatoriedade) {
-//		this.obrigatoriedade = obrigatoriedade;
-//	}
-	
-	/**
-	 * @return the tipo
-	 */
-//	public Enum getTipo() {
-//		return tipo;
-//	}
+	public void setValor(String valor) {
+		this.valor = valor;
+	}
 
 	/**
-	 * @param tipo the tipo to set
+	 * @return the caracterPreenchimento
 	 */
-//	public void setTipo(Enum tipo) {
-//		this.tipo = tipo;
-//	}
+	public char getCaracterPreenchimento() {
+		return caracterPreenchimento;
+	}
+
+	/**
+	 * @param caracterPreenchimento the caracterPreenchimento to set
+	 */
+	public void setCaracterPreenchimento(char caracterPreenchimento) {
+		this.caracterPreenchimento = caracterPreenchimento;
+	}
+
+	/**
+	 * @return the ladoPreenchimento
+	 */
+	public int getLadoPreenchimento() {
+		return ladoPreenchimento;
+	}
+
+	/**
+	 * @param ladoPreenchimento the ladoPreenchimento to set
+	 */
+	public void setLadoPreenchimento(int ladoPreenchimento) {
+		this.ladoPreenchimento = ladoPreenchimento;
+	}
+
+	/**
+	 * @return the tamanhoMaximo
+	 */
+	public int getTamanhoMaximo() {
+		return tamanhoMaximo;
+	}
+
+	/**
+	 * @param tamanhoMaximo the tamanhoMaximo to set
+	 */
+	public void setTamanhoMaximo(int tamanhoMaximo) {
+		this.tamanhoMaximo = tamanhoMaximo;
+	}
+
+	/**
+	 * @return the tamanhoMinimo
+	 */
+	public int getTamanhoMinimo() {
+		return tamanhoMinimo;
+	}
+
+	/**
+	 * @param tamanhoMinimo the tamanhoMinimo to set
+	 */
+	public void setTamanhoMinimo(int tamanhoMinimo) {
+		this.tamanhoMinimo = tamanhoMinimo;
+	}
+
+	/**
+	 * @return the valorMaximo
+	 */
+	public int getValorMaximo() {
+		return valorMaximo;
+	}
+
+	/**
+	 * @param valorMaximo the valorMaximo to set
+	 */
+	public void setValorMaximo(int valorMaximo) {
+		this.valorMaximo = valorMaximo;
+	}
+
+	/**
+	 * @return the valorMinimo
+	 */
+	public int getValorMinimo() {
+		return valorMinimo;
+	}
+
+	/**
+	 * @param valorMinimo the valorMinimo to set
+	 */
+	public void setValorMinimo(int valorMinimo) {
+		this.valorMinimo = valorMinimo;
+	}
+
+	/**
+	 * @return the tipoCampo
+	 */
+	public TipoCampo getTipoCampo() {
+		return tipoCampo;
+	}
+
+	/**
+	 * @param tipoCampo the tipoCampo to set
+	 */
+	public void setTipoCampo(TipoCampo tipoCampo) {
+		this.tipoCampo = tipoCampo;
+	}
 }
