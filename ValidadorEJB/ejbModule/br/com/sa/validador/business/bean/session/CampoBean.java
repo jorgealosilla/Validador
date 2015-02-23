@@ -1,5 +1,7 @@
 package br.com.sa.validador.business.bean.session;
 
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -24,6 +26,11 @@ public class CampoBean implements ICampoBean{
 	public boolean salvar(CampoModel campo) {
 		dao.salvar(campo);
 		return true;
+	}
+
+	@Override
+	public List<CampoModel> getAll() {
+		return dao.getAll();
 	}
 
 }

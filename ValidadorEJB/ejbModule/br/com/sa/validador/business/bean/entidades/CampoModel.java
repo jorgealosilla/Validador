@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Transient;
 
 import br.com.sa.validador.business.enuns.TipoCampo;
@@ -19,6 +21,11 @@ import br.com.sa.validador.business.enuns.TipoCampo;
  */
 @Entity(name="campo")
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@NamedQueries( {
+		@NamedQuery(name = "campo.getAll", query = "SELECT c FROM campo c"),
+		@NamedQuery(name = "campo.findByName", query = "SELECT c FROM campo c WHERE c.nome LIKE :pnome")/*,
+		@NamedQuery(name = "Livro.findByAssunto", query = "SELECT l FROM Livro l WHERE l.assunto LIKE :pAssunto"),
+		@NamedQuery(name = "Livro.findByTitulo", query = "SELECT l FROM Livro l WHERE l.titulo LIKE :pTitulo")*/ })
 public class CampoModel implements Serializable{
 	/**
 	 * 
