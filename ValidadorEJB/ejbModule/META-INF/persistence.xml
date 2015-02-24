@@ -6,7 +6,7 @@
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<jta-data-source>jdbc/ValidadorDS</jta-data-source>
 		
-		<class>br.com.sa.validador.business.bean.entidades.Layout</class>
+		<class>br.com.sa.validador.business.bean.entidades.Classificacao</class>
 		<class>br.com.sa.validador.business.bean.entidades.Arquivo</class>
 		<class>br.com.sa.validador.business.bean.entidades.CampoModel</class>
 

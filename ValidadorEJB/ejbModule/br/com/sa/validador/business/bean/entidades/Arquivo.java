@@ -29,8 +29,8 @@ public class Arquivo implements Serializable{
 	private boolean possuiRodape;
 	private int tamaho;
 	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="idLayout")
-	private Layout layout;
+	@JoinColumn(name="idClassificacao")
+	private Classificacao classificacao;
 	//public Linha m_Linha;
 
 	public Arquivo(){
