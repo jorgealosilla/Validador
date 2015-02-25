@@ -8,7 +8,7 @@ package br.com.sa.validador.business.enuns;
  *
  */
 public enum TipoLayout {
-	POSICAO_FIXA {
+	TAMANHO_FIXO {
 		public String getValue() {
 			return "Posição Fixa";
 		}

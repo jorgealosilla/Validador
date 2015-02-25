@@ -8,4 +8,5 @@ public interface IClassificacaoBean {
 	public boolean salvar(Classificacao classificacao);
 	public List<Classificacao> getAll();
 	public Classificacao getById(Long id);
+	public void excluir(Long id);
 }

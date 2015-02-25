@@ -37,4 +37,9 @@ public class ClassificacaoBean implements IClassificacaoBean{
 		return dao.getById(id);
 	}
 
+	@Override
+	public void excluir(Long id) {
+		dao.excluir(id);
+	}
+
 }

@@ -10,6 +10,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.websocket.server.PathParam;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -27,7 +28,6 @@ import br.com.sa.validador.business.bean.interfaces.IClassificacaoBean;
 @ApplicationPath("resources")
 @Path("classificacao")
 @Produces(MediaType.APPLICATION_JSON)
-@Consumes(MediaType.APPLICATION_JSON)
 public class ClassificacaoFacade {
 	@EJB
 	private IClassificacaoBean classificacaoBean;
@@ -38,15 +38,21 @@ public class ClassificacaoFacade {
 	}
 	
 	@GET
-	@Path("/{id}")
+	@Path("{id}")
+	@Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
 	public Classificacao getById(@PathParam("id") Long id){
-		System.out.println("Id da classificação: "+id);
 		return classificacaoBean.getById(id);
 	}
 	
 	@POST	
 	public boolean salvar(Classificacao classificacao){
 		return classificacaoBean.salvar(classificacao);
+	}
+	
+	@DELETE
+	@Path("{id}")
+	public void excluir(Long id){
+		classificacaoBean.excluir(id);
 	}
 
 }

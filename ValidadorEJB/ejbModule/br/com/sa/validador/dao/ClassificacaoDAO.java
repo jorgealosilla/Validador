@@ -35,4 +35,8 @@ public class ClassificacaoDAO {
 	public Classificacao getById(Long id) {
 		return em.find(Classificacao.class, id);
 	}
+
+	public void excluir(Long id) {
+		em.remove(getById(id));
+	}
 }
