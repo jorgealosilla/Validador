@@ -6,14 +6,12 @@ package br.com.sa.validador.business.bean.session.facade;
 import java.util.List;
 
 import javax.ejb.EJB;
-import javax.enterprise.context.RequestScoped;
-import javax.websocket.server.PathParam;
-import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -24,11 +22,10 @@ import br.com.sa.validador.business.bean.interfaces.IClassificacaoBean;
  * @author JORGE
  * 
  */
-@RequestScoped
-@ApplicationPath("resources")
 @Path("classificacao")
+@Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-public class ClassificacaoFacade {
+public class ClassificacaoFacade{
 	@EJB
 	private IClassificacaoBean classificacaoBean;
 	
@@ -39,19 +36,18 @@ public class ClassificacaoFacade {
 	
 	@GET
 	@Path("{id}")
-	@Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-	public Classificacao getById(@PathParam("id") Long id){
+	public Classificacao find(@PathParam("id") Long id){
 		return classificacaoBean.getById(id);
 	}
 	
-	@POST	
+	@POST
 	public boolean salvar(Classificacao classificacao){
 		return classificacaoBean.salvar(classificacao);
 	}
 	
 	@DELETE
 	@Path("{id}")
-	public void excluir(Long id){
+	public void excluir(@PathParam("id") Long id){
 		classificacaoBean.excluir(id);
 	}
 

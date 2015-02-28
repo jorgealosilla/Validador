@@ -3,6 +3,7 @@ package br.com.sa.validador.business.bean.session;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.ejb.Local;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -12,6 +13,7 @@ import br.com.sa.validador.business.bean.interfaces.IClassificacaoBean;
 import br.com.sa.validador.dao.ClassificacaoDAO;
 
 @Stateless
+@Local(IClassificacaoBean.class)
 public class ClassificacaoBean implements IClassificacaoBean{
 	@PersistenceContext
 	EntityManager entityManager;
@@ -34,6 +36,7 @@ public class ClassificacaoBean implements IClassificacaoBean{
 
 	@Override
 	public Classificacao getById(Long id) {
+		System.out.println("#################### Id:"+ id + "####################################");
 		return dao.getById(id);
 	}
 
